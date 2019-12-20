@@ -1,0 +1,20 @@
+.nav {
+  grid-area: n;
+  background-color: greenyellow;
+  margin-bottom: 10px;
+  padding: 15px 0 0 20px;
+}
+
+.nav a {
+  font-size: 24px;
+  margin-top: 20px;
+  transition: all .3s;
+  color: #fff;
+}
+
+.nav a:hover {
+  color: blue;
+}
+.friends{
+  margin-top: 50px;
+}

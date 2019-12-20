@@ -1,0 +1,29 @@
+.dialogs{
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+.dialogsItem{
+
+}
+.dialog{
+
+}
+
+.messanges{
+
+}
+.messange{
+
+}
+.dialogs a{
+    display: block;
+    margin-left: 15px;
+}
+.dialogs img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 15px;
+    margin-left: 10px;
+}
