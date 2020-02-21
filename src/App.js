@@ -13,7 +13,7 @@ import Route from "react-router-dom/es/Route";
 
 
 const App = (props) => {
-
+    debugger
   return (
 
     <div className='app-wrapper'>
