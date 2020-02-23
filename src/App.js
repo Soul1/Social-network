@@ -12,20 +12,20 @@ import Route from "react-router-dom/es/Route";
 
 
 
-const App = (props) => {
+const App = () => {
 
-  return (
+    return (
 
     <div className='app-wrapper'>
       <Header />
-      <Navbar state={props.state.navBarPage}/>
+      <Navbar />
       <div className='app-wrapper__content'>
 
         <Route path="/dialogs" render={ () =>
-            <DialogsContainer store={props.store} />}/>
+            <DialogsContainer />}/>
 
         <Route path="/profile" render={ () =>
-            <Profile store={props.store}/>}/>
+            <Profile />}/>
 
         <Route path="/news" render={ () => <News />}/>
         <Route path="/music" render={ () => <Music />}/>
