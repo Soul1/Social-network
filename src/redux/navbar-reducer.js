@@ -1,6 +1,6 @@
 
 let initialState = {
-    navbarPage: {
+    navbar: {
         users: [
             {
                 id: 1,

@@ -20,7 +20,6 @@ body{
   height: 100vh;
   background-color: #ccc;
   overflow-x: hidden;
-  text-align: center;
 }
 
 .app-wrapper__content {
