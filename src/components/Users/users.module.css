@@ -1,5 +1,6 @@
 .inner{
     padding: 10px;
+    font-size: 14px;
 }
 
 .wrapper{
@@ -14,8 +15,9 @@
     margin-bottom: 10px;
 }
 .user{
+    margin-top: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 .userInfo{
@@ -57,4 +59,23 @@
 
 .location div{
     margin: 0 0 10px;
+}
+
+.paginate{
+    margin: 0 10px;
+    text-align: center;
+    background-color: #fff;
+    padding: 5px 10px;
+    overflow-x: hidden;
+}
+
+.selectedPage{
+    font-weight: 600;
+    font-size: 18px;
+    margin-right: 10px;
+    cursor: not-allowed;
+}
+.selectPage{
+    margin-right: 10px;
+    cursor: pointer;
 }
