@@ -3,7 +3,6 @@ import Route from "react-router-dom/es/Route";
 
 import './App.css';
 
-import Header from './components/Header/Header';
 import Navbar from './components/Nav/Navbar';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import UsersContainer from "./components/Users/UsersContainer";
@@ -12,6 +11,7 @@ import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 
 import DialogsContainer from './components/Dialogs/DialogsContainer';
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 
 const App = () => {
@@ -19,7 +19,7 @@ const App = () => {
     return (
 
         <div className='app-wrapper'>
-            <Header/>
+            <HeaderContainer/>
             <Navbar/>
             <div className='app-wrapper__content'>
 
