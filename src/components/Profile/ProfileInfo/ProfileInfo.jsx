@@ -1,31 +1,34 @@
 import React from 'react';
-import classes from './ProfileInfo.module.css';
+import s from './ProfileInfo.module.css';
+import defaultAvatar from '../../../assets/image/userLarge.jpg'
 
-const ProfileBanner = (props) => {
+const ProfileInfo = (props) => {
+
     return (
-        <img src={props.imgSrc} alt=''></img>
-    )
-}
+        <div className={s.wrapper}>
+            <div className={s.background}>
+                <img
+                    src='https://www.tokkoro.com/picsup/5552616-real-world-wallpapers.jpg'
+                    alt='444'/>
+            </div>
 
-const UserInfo = (props) => {
-    return (
-        <div>avatar + user-info</div>
-    )
-}
-
-const ProfileInfo = () => {
-    return (
-        <div className={classes.contentWrapper}>
-
-            <ProfileBanner imgSrc='https://www.tokkoro.com/picsup/5552616-real-world-wallpapers.jpg'/>
-
-            <div className={classes.userInfo}>
-                <UserInfo/>
+            <div className={s.user}>
+                <div className={s.userAvatar}>
+                    <img
+                        src={props.profile.photos.large ? props.profile.photos.large :defaultAvatar}
+                        alt="large"/>
+                </div>
+                <div className={s.userInfo}>
+                    <div className={s.userName}>{props.profile.fullName}</div>
+                    <div className={s.userStatus}>
+                        Status: {props.profile.aboutMe ? props.profile.aboutMe: 'Нет статуса'}
+                    </div>
+                </div>
             </div>
 
         </div>
-
     );
+
 }
 
 

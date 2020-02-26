@@ -1,6 +1,7 @@
 import React from "react";
 import s from "./users.module.css";
 import defaultAvatar from './../../assets/image/user.jpg'
+import {NavLink} from "react-router-dom";
 
 
 const Users = (props) => {
@@ -27,9 +28,11 @@ const Users = (props) => {
 
                     <div className={s.userInfo}>
                         <div className={s.img}>
-                            <img src={u.photos.small != null ?
-                                u.photos.small
-                                : defaultAvatar} alt="Users avatar"/>
+                            <NavLink to={'/profile/' + u.id}>
+                                <img src={u.photos.small != null ?
+                                    u.photos.small
+                                    : defaultAvatar} alt="Users avatar"/>
+                            </NavLink>
                         </div>
                         <div>
                             {u.followed ?
@@ -48,7 +51,7 @@ const Users = (props) => {
                     <div className={s.wrapper}>
                         <div className={s.info}>
                             <h3>{u.name}</h3>
-                            <p>{u.status !== '' ? u.status : "Нет статуса"}</p>
+                            <p>{u.status ? u.status : "Нет статуса"}</p>
                         </div>
                         <div className={s.location}>
                             <div>{"u.location.country"}</div>

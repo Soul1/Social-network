@@ -7,7 +7,7 @@
     background-color: #fff;
     border-radius: 10px;
     border: 1px solid #000;
-    padding: 12px;
+    padding: 10px;
     max-width: 400px;
     width: 100%;
     display: flex;
@@ -15,7 +15,7 @@
     margin-bottom: 10px;
 }
 .user{
-    margin-top: 20px;
+    margin-top: 15px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
