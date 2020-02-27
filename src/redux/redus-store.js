@@ -6,11 +6,11 @@ import usersReducer from "./users-reducer";
 import authReducer from "./auth-reducer";
 
 let reducers = combineReducers({
-    profilePage: profileReducer,
-    dialogsPage: dialogsReducer,
-    navbar: navbarReducer,
-    usersPage: usersReducer,
-    auth: authReducer,
+  profilePage: profileReducer,
+  dialogsPage: dialogsReducer,
+  navbar: navbarReducer,
+  usersPage: usersReducer,
+  auth: authReducer,
 });
 
 let store = createStore(reducers);
