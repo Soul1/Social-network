@@ -2,7 +2,6 @@ import React from "react";
 import s from "./users.module.css";
 import defaultAvatar from './../../assets/image/user.jpg'
 import {NavLink} from "react-router-dom";
-import {usersAPI} from "../../api/api";
 
 
 const Users = (props) => {
@@ -21,7 +20,8 @@ const Users = (props) => {
           return <span
             className={props.currentPage === p && s.selectedPage || s.selectPage}
             onClick={() => {
-              props.onPageChanged(p)
+                props.onPageChanged(p)
+
             }}>{p}</span>
         })}
       </div>
@@ -38,25 +38,16 @@ const Users = (props) => {
             </div>
             <div>
               {u.followed ?
-                <button onClick={() => {
-                  usersAPI.unfollow(u.id)
-                    .then(data => {
-                      if (data.resultCode == 0) {
-                        props.unfollow(u.id)
+                <button disabled={props.followingInProgress.some(id => id === u.id)}
 
-                      }
-                    })
-                }}
+                        onClick={() => props.unfollow(u.id)}
+
                         className={s.btn}>Unfollow</button>
 
-                : <button onClick={() => {
-                  usersAPI.follow(u.id)
-                    .then(data => {
-                      if (data.resultCode == 0) {
-                        props.follow(u.id)
-                      }
-                    })
-                }}
+                : <button disabled={props.followingInProgress.some(id => id === u.id)}
+
+                          onClick={() => props.follow(u.id)}
+
                           className={s.btn}>Follow</button>
               }
 

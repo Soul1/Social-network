@@ -6,20 +6,20 @@ import Preloader from "../common/Prealoader/Preloader";
 
 
 const Profile = (props) => {
-    if (!props.profile) {
-        return <Preloader/>
-    }
+  if (!props.profile) {
+    return <Preloader/>
+  }
 
-    return (
-        <div className={classes.content}>
+  return (
+    <div className={classes.content}>
 
-            <ProfileInfo profile={props.profile}/>
+      <ProfileInfo profile={props.profile}/>
 
-            <MyPostsContainer />
+      <MyPostsContainer/>
 
-        </div>
+    </div>
 
-    );
+  );
 }
 
 
