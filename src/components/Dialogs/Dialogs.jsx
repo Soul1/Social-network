@@ -24,6 +24,7 @@ const Dialogs = (props) => {
         props.updateNewMessageBody(body);
     }
 
+
     return (
 
         <div className={classes.dialogs}>
