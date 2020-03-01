@@ -1,7 +1,6 @@
 import {profileAPI, usersAPI} from "../api/api";
 
 const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const SET_USERS_PROFILE = 'SET-USERS-PROFILE';
 const SET_STATUS = 'SET-STATUS';
 
@@ -11,7 +10,6 @@ let initialState = {
     {id: 2, message: 'dstrs', likesCount: 5},
     {id: 3, message: 'dsdtrs', likesCount: 6}
   ],
-  newPostText: '',
   profile: null,
   status: ''
 }
@@ -20,22 +18,12 @@ const profileReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case ADD_POST: {
-      let newPost = {
-        id: 4,
-        message: state.newPostText,
-        likesCount: 0,
+      let body = action.newPostBody;
+      return {
+        ...state,
+        posts: [...state.posts, {id: 4, message: body,likesCount: 0,}],
       };
-      let stateCopy = {...state};
-      stateCopy.posts = [...state.posts];
-      stateCopy.posts.push(newPost);
-      stateCopy.newPostText = '';
-      return stateCopy
     }
-
-    case  UPDATE_NEW_POST_TEXT:
-      let stateCopy = {...state};
-      stateCopy.newPostText = action.newText;
-      return stateCopy;
 
     case  SET_USERS_PROFILE: {
       return {...state, profile: action.profile};
@@ -50,11 +38,8 @@ const profileReducer = (state = initialState, action) => {
 
 }
 
-export const addPostActionCreator = () => ({type: ADD_POST})
-export const updateNewPostTextActionCreator = (text) => ({
-  type: UPDATE_NEW_POST_TEXT,
-  newText: text,
-})
+export const addPostActionCreator = (newPostBody) => ({type: ADD_POST, newPostBody})
+
 export const setUserProfile = (profile) => ({type: SET_USERS_PROFILE, profile})
 export const setUserStatus = (status) => ({type: SET_STATUS, status})
 
@@ -65,7 +50,7 @@ export const getUser = (userId) => {
         dispatch(setUserProfile(response.data))
       })
   }
-}
+};
 export const getStatus = (userId) => {
   return (dispatch) => {
     profileAPI.getStatus(userId)
@@ -73,7 +58,7 @@ export const getStatus = (userId) => {
         dispatch(setUserStatus(response.data))
       })
   }
-}
+};
 export const updateStatus = (status) => {
   return (dispatch) => {
     profileAPI.updateStatus(status)
@@ -83,6 +68,6 @@ export const updateStatus = (status) => {
         }
       })
   }
-}
+};
 
 export default profileReducer

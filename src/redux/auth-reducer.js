@@ -1,12 +1,14 @@
 import {authAPI} from "../api/api";
 
 const SET_USERS_DATA = 'SET-USERS-DATA';
+const GET_USER_LOGIN = 'GET-USER-LOGIN';
 
 
 let initialState = {
   id: null,
   login: null,
   email: null,
+  rememberMe: false,
   isAuth: false,
 };
 
@@ -15,6 +17,9 @@ const authReducer = (state = initialState, action) => {
   switch (action.type) {
 
     case SET_USERS_DATA:
+      return {...state, ...action.data, isAuth: true};
+
+    case GET_USER_LOGIN:
       return {...state, ...action.data, isAuth: true};
 
 
