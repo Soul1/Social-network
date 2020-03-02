@@ -15,7 +15,7 @@ import ProfileContainer from './components/Profile/ProfileContainer';
 import UsersContainer from "./components/Users/UsersContainer";
 
 import {connect} from "react-redux";
-import {initializeApp} from "./redux/app-reducer";
+import {initializeApp} from "./redux/Reducers/app-reducer";
 import {compose} from "redux";
 import {withRouter} from "react-router-dom";
 

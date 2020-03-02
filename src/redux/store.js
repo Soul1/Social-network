@@ -1,6 +1,6 @@
-import profileReducer from "./profile-reducer";
-import dialogsReducer from "./dialogs-reducer";
-import navbarReducer from "./navbar-reducer";
+import profileReducer from "./Reducers/profile-reducer";
+import dialogsReducer from "./Reducers/dialogs-reducer";
+import navbarReducer from "./Reducers/navbar-reducer";
 
 
 let store = {
