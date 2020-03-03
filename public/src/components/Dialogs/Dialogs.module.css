@@ -1,0 +1,30 @@
+.dialogs{
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.dialogs a{
+    display: block;
+    margin-left: 15px;
+}
+.dialogs img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: block;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+.name {
+    color: #000;
+}
+
+.message{
+    background-color: #fff;
+    padding: 5px 7px;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 3px;
+    border-bottom: 1px solid #62ff7d;
+}
