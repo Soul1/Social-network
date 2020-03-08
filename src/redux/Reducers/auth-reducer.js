@@ -1,7 +1,7 @@
 import {authAPI} from "../../api/api";
 import {stopSubmit} from "redux-form";
 
-const SET_USERS_DATA = 'SET-USERS-DATA';
+const SET_USERS_DATA = 'auth/SET-USERS-DATA';
 
 let initialState = {
   id: null,
@@ -28,40 +28,31 @@ export const setAuthUserData = (userId, email, login, isAuth) => ({
   data: {userId, email, login, isAuth}
 });
 
-export const auth = () => {
-  return (dispatch) => {
-    return authAPI.authMe()
-      .then(data => {
-        if (data.resultCode === 0) {
-          let {id, email, login} = data.data;
-          dispatch(setAuthUserData(id, email, login, true))
-        }
-      })
+export const auth = () => async (dispatch) => {
+  let response = await authAPI.authMe();
+  if (response.resultCode === 0) {
+    let {id, email, login} = response.data;
+    dispatch(setAuthUserData(id, email, login, true))
+  }
+
+};
+
+export const login = (email, password, rememberMe) => async (dispatch) => {
+  let response = await authAPI.login(email, password, rememberMe)
+  if (response.resultCode === 0) {
+    dispatch(auth())
+  } else {
+    let message = response.messages.length > 0 ?
+      response.messages[0] : 'Some error';
+    dispatch(stopSubmit('login', {_error: message}))
   }
 };
 
-export const login = (email, password, rememberMe) => {
-  return (dispatch) => {
-    authAPI.login(email, password, rememberMe)
-      .then(response => {
-        if (response.data.resultCode === 0) {
-          dispatch(auth())
-        } else {
-          let message = response.data.messages.length > 0 ?
-            response.data.messages[0] : 'Some error';
-          dispatch(stopSubmit('login', {_error: message}))
-        }
-      })
+export const logout = () => async (dispatch) => {
+  let response = await authAPI.logout()
+  if (response.resultCode === 0) {
+    dispatch(setAuthUserData(null, null, null, false))
   }
-};
-
-export const logout = () => (dispatch) => {
-  authAPI.logout()
-    .then(response => {
-      if (response.data.resultCode === 0) {
-        dispatch(setAuthUserData(null, null, null, false))
-      }
-    })
 };
 
 
