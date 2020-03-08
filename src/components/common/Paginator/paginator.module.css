@@ -1,0 +1,18 @@
+.paginate{
+    margin: 0 10px;
+    text-align: center;
+    background-color: #fff;
+    padding: 5px 10px;
+    overflow-x: hidden;
+}
+
+.selectedPage{
+    font-weight: 600;
+    font-size: 18px;
+    margin-right: 10px;
+    cursor: not-allowed;
+}
+.selectPage{
+    margin-right: 10px;
+    cursor: pointer;
+}
