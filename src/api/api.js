@@ -23,10 +23,10 @@ export const usersAPI = {
       .then(response => response.data)
   },
   getProfile(userId) {
-    console.warn('Use profileAPI')
+    console.warn('Use profileAPI');
     return profileAPI.getProfile(userId)
   }
-}
+};
 
 export const profileAPI = {
   getProfile(userId) {
@@ -38,7 +38,7 @@ export const profileAPI = {
   updateStatus(status){
     return instance.put(`profile/status`, {status: status})
   }
-}
+};
 
 export const authAPI = {
   authMe() {
@@ -51,4 +51,4 @@ export const authAPI = {
   logout() {
     return instance.delete(`auth/login`)
   },
-}
+};
