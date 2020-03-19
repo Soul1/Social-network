@@ -1,0 +1,17 @@
+.nav {
+  grid-area: n;
+  background-color: greenyellow;
+  margin-bottom: 10px;
+  padding: 15px 20px 0;
+}
+
+.nav a {
+  font-size: 24px;
+  margin-top: 20px;
+  transition: all .3s;
+  color: #6d5152;
+}
+
+.nav a:hover {
+  color: #49daff;
+}
