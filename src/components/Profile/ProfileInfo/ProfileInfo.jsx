@@ -9,9 +9,7 @@ const ProfileInfo = ({profile, status, updateStatus}) => {
     <div className={s.user}>
       <div className={s.userAvatar}>
         <img
-          src={profile.photos.large ?
-            profile.photos.large
-            : defaultAvatar}
+          src={profile.photos.large || defaultAvatar}
           alt="large"/>
       </div>
       <div className={s.userInfo}>

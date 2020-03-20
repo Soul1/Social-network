@@ -1,5 +1,5 @@
 import React from "react";
-import {Field, reduxForm} from "redux-form";
+import {reduxForm} from "redux-form";
 import {createField, Input} from "../common/FormsControls/FormsControls";
 import {required} from "../../utils/validators/validator";
 import {connect} from "react-redux";
@@ -11,15 +11,15 @@ const LoginForm = ({handleSubmit, error}) => {
 
   return (
     <form onSubmit={handleSubmit}>
-        {createField(
-          "Email", 'email',
-          Input, [required], 'email')}
-        {createField(
-          "Password", 'password',
-          Input, [required], 'password')}
-        {createField(
-          "", 'rememberMe',
-          Input, [], 'checkbox', 'remember me')}
+      {createField(
+        "Email", 'email',
+        Input, [required], 'email')}
+      {createField(
+        "Password", 'password',
+        Input, [required], 'password')}
+      {createField(
+        "", 'rememberMe',
+        Input, [], 'checkbox', 'remember me')}
       {error && <div className={s.formSummaryErr}>{error}</div>}
       <div>
         <button className={s.button}>Login</button>
@@ -40,9 +40,15 @@ const Login = ({login, isAuth}) => {
   }
 
   return (
-    <div className={s.login}>
-      <h1>Login</h1>
-      <LoginReduxForm onSubmit={onSubmit}/>
+    <div>
+      <div className={s.free}>
+        <div>test login: <h3>free@samuraijs.com</h3></div>
+        <div>test password: <h3>free</h3></div>
+      </div>
+      <div className={s.login}>
+        <h1>Login</h1>
+        <LoginReduxForm onSubmit={onSubmit}/>
+      </div>
     </div>
   )
 };
