@@ -3,7 +3,13 @@ import s from './ProfileInfo.module.css';
 import defaultAvatar from '../../../assets/image/userLarge.jpg'
 import ProfileStatusWithHook from "./Status/ProfileStatusWithHook";
 
-const ProfileInfo = ({profile, status, updateStatus}) => {
+const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto}) => {
+
+  const onMainPhotoSelected = (e) => {
+    if (e.target.files.length){
+      savePhoto(e.target.files[0])
+    }
+  };
 
   return (
     <div className={s.user}>
@@ -15,6 +21,7 @@ const ProfileInfo = ({profile, status, updateStatus}) => {
       <div className={s.userInfo}>
         <div className={s.userName}>{profile.fullName}</div>
         <div className={s.userStatus}>
+          {isOwner && <input type="file" onChange={onMainPhotoSelected}/>}
           <ProfileStatusWithHook status={status}
                                  updateStatus={updateStatus}/>
         </div>
