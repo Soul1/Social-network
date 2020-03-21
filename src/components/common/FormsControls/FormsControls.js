@@ -16,21 +16,24 @@ const FormControl = ({meta: {touched,error}, children}) => {
 };
 
 export const Textarea = (props) => {
-  const {input, meta, ...restProps} = props;
+  const {input, ...restProps} = props;
   return <FormControl {...props}><textarea {...input} {...restProps}/></FormControl>
 };
 
 export const Input = (props) => {
-  const {input, meta, ...restProps} = props;
+  const {input, ...restProps} = props;
   return <FormControl {...props}><input {...input} {...restProps}/></FormControl>
 };
 
-export const createField = (placeholder, name, component, validate, type = '', text = '') => (
+export const createField = (placeholder, name,
+                            component, validate,
+                            type = '', text = '', value='') => (
   <div>
     {text}
     <Field
       name={name} placeholder={placeholder}
       type={type}
       component={component} validate={validate}
+      value={value}
     />
   </div>);

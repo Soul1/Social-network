@@ -6,7 +6,6 @@ import './App.css';
 import Navbar from './components/Nav/Navbar';
 import News from './components/News/News';
 import Music from './components/Music/Music';
-import Settings from './components/Settings/Settings';
 import Preloader from "./components/common/Prealoader/Preloader";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
@@ -19,6 +18,7 @@ import {withRouter} from "react-router-dom";
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
 const UsersContainer = React.lazy(() => import('./components/Users/UsersContainer'));
 const Login = React.lazy(() => import('./components/Login/Login'));
+const Settings = React.lazy(() => import('./components/Settings/SettingsContainer'));
 
 
 class App extends React.Component {
